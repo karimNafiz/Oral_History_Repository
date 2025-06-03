@@ -3,5 +3,8 @@ oral_history_repository_virtual_environment/Lib
 oral_history_repository_virtual_environment/Scripts
 oral_history_repository_virtual_environment/pyvenv.cfg
 oral_history_repository_virtual_environment/share
+oral_history_repository_virtual_environment/etc
+jupyter_notebooks/.ipynb_checkpoints
 .clj-kondo
 .lsp
+.ipynb_checkpoints
