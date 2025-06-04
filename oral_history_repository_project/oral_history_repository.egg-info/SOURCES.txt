@@ -1,0 +1,7 @@
+pyproject.toml
+models/__init__.py
+models/corpus.py
+oral_history_repository.egg-info/PKG-INFO
+oral_history_repository.egg-info/SOURCES.txt
+oral_history_repository.egg-info/dependency_links.txt
+oral_history_repository.egg-info/top_level.txt
