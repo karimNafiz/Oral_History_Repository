@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "oral-history-repository"
+version = "0.1.0"
+description = "Oral History Repository Project"
+authors = [{ name = "Nafiz Karim", email = "nafiz@example.com" }]
+dependencies = []
+
+[tool.setuptools]
+packages = ["models"]
