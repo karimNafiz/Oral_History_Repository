@@ -10,4 +10,4 @@ authors = [{ name = "Nafiz Karim", email = "nafiz@example.com" }]
 dependencies = []
 
 [tool.setuptools]
-packages = ["models"]
+packages = ["models" , "util"]

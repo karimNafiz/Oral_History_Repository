@@ -11,3 +11,4 @@ class Corpus:
         # return the bytes in the format this corpus object should return
         # return the generator expression 
         return stream.stream_bytes(filename , relative_path)
+    
