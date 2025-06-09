@@ -9,5 +9,5 @@ description = "Oral History Repository Project"
 authors = [{ name = "Nafiz Karim", email = "nafiz@example.com" }]
 dependencies = []
 
-[tool.setuptools]
-packages = ["models" , "util"]
+[tool.setuptools.packages.find]
+where = ["."]

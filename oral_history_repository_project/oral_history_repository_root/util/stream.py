@@ -9,7 +9,7 @@ nlp.add_pipe("sentencizer")
 def get_full_path(filename: str, relative_path: str) -> str:
     return f"{relative_path}/{filename}"
 
-def stream_bytes(full_path: str, buffer_size: int = 4096):
+def stream_bytes_frm_path(full_path: str, buffer_size: int = 4096):
     try:
         with open(full_path, 'rb') as raw_file:
             buffered_reader = io.BufferedReader(raw_file, buffer_size=buffer_size)
@@ -26,7 +26,7 @@ def stream_bytes(full_path: str, buffer_size: int = 4096):
 
 def stream_bytes(filename: str, relative_path: str, buffer_size: int = 4096):
     full_path = get_full_path(filename, relative_path)
-    return stream_bytes(full_path, buffer_size)
+    return stream_bytes_frm_path(full_path, buffer_size)
 
 
 #have a function call called string stream
@@ -38,7 +38,7 @@ def stream_string_chunk(filename: str , relative_path:str, decode_standard:str):
         # so it yields the bytes class 
         # the bytes class has .decode function 
         # so we could yield from the stream bytes function
-        # return the decoded stream
+        # return the decoded stream 
         for chunk in stream_bytes(filename , relative_path):
             # option for multi-threading here
             yield chunk.decode(decode_standard)
@@ -49,11 +49,10 @@ def stream_string_chunk(filename: str , relative_path:str, decode_standard:str):
 
 #then another function called sentence stream
 
-def stream_sentence(filename: str, relative_path: str, decode_standard: str):
+def stream_sentence(filename: str, relative_path: str, decode_standard: str = "utf-8"):
     try:
         prev_last_sentence_buffer = ""
         obscure_char = "¶"
-        
         for string_chunk in stream_string_chunk(filename, relative_path, decode_standard):
             string_chunk += obscure_char
             doc_list = [sent.text for sent in nlp(string_chunk).sents]
