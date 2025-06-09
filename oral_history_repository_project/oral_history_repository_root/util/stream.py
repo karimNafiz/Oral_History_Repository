@@ -85,5 +85,22 @@ def stream_sentence(filename: str, relative_path: str, decode_standard: str = "u
     except Exception as e:
         raise e
 
+def stream_sentence_batch(filename:str , relative_path:str, batch_size:int , decode_standard:str = "utf-8" ):
+    try:
+        return_batch = []
+        count = 0
+        for sentence in stream_sentence(filename , relative_path , decode_standard):
+            count += 1 
+            return_batch.append(sentence)
+            if count >= batch_size:
+                count = 0
+                yield return_batch
+                return_batch = []
+        # in python if return_batch is basically bool(return_batch) which is defined as len(return_batch) > 0    
+        if return_batch:
+            yield return_batch
+    except Exception as e:
+        raise e
+
 
 #TODO i need to make sure to strip all the /n /r from the corpus
