@@ -52,7 +52,7 @@ def stream_string_chunk(filename: str , relative_path:str, decode_standard:str):
 def stream_sentence(filename: str, relative_path: str, decode_standard: str = "utf-8"):
     try:
         prev_last_sentence_buffer = ""
-        obscure_char = "¶"
+        obscure_char = "¶" 
         for string_chunk in stream_string_chunk(filename, relative_path, decode_standard):
             string_chunk += obscure_char
             doc_list = [sent.text for sent in nlp(string_chunk).sents]
@@ -86,4 +86,4 @@ def stream_sentence(filename: str, relative_path: str, decode_standard: str = "u
         raise e
 
 
-    
+#TODO i need to make sure to strip all the /n /r from the corpus
