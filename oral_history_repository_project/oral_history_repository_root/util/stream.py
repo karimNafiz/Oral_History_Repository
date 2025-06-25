@@ -104,3 +104,8 @@ def stream_sentence_batch(filename:str , relative_path:str, batch_size:int , dec
 
 
 #TODO i need to make sure to strip all the /n /r from the corpus
+
+
+# propaganda analysis
+# find out if someone is spewing bullshit
+# info grpaphics through 
