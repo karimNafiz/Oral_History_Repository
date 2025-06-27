@@ -448,7 +448,10 @@ def transformers_ner_crf(args):
             )
             if checkpoint[-3:] != 'bin':
                 checkpoint += "/pytorch_model.bin"
-            state_dict = torch.load(checkpoint)
+            # this line was originally put here by the authors
+            # im changing this cuz i can't use CUDA
+            #state_dict = torch.load(checkpoint)
+            state_dict = torch.load(checkpoint, map_location=torch.device('cpu'))
             model.load_state_dict(state_dict)
             
             # model = model_class.from_pretrained(checkpoint)
@@ -481,7 +484,10 @@ def transformers_ner_crf(args):
                 use_cuda=True
             )
             checkpoint = os.path.join(checkp, WEIGHTS_NAME)
-            state_dict = torch.load(checkpoint)
+            # originally put here by the author
+            # need to change it to tell torch to map it to the CPU
+            state_dict = torch.load(checkpoint, map_location=torch.device('cpu'))
+            # state_dict = torch.load(checkpoint)
             model.load_state_dict(state_dict)
 
             model.to(args.device)

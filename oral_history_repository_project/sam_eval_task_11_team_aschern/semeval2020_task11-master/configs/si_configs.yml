@@ -1,7 +1,7 @@
 ---------------dataset params---------------
 
 train_data_folder: datasets/train-articles
-test_data_folder: datasets/dev-articles
+test_data_folder: datasets/karim_testing
 labels_path: datasets/train-task1-SI.labels
 gold_annot_file: results/dev-task-SI.labels
 propaganda_techniques_file: tools/data/propaganda-techniques-names-semeval2020task11.txt
@@ -33,5 +33,5 @@ learning_rate: 2e-5
 save_steps: 700
 warmup_steps: 500
 num_train_epochs: 27
-output_dir: model_checkpoints/ner_roberta_large_uncased_crf_7700/
+output_dir: pretrained/span_identification
 do_lower_case: True

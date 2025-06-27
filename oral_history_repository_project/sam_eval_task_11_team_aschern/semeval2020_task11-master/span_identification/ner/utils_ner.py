@@ -54,7 +54,8 @@ class InputFeatures(object):
 def read_examples_from_file(file_path, mode):
     guid_index = 1
     examples = []
-    with open(file_path, encoding="utf-8") as f:
+    # changed it to utf-8-sig
+    with open(file_path, encoding="ISO-8859-1") as f:
         words = []
         labels = []
         for line in f:
